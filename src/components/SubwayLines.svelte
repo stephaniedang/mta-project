@@ -26,7 +26,7 @@
       style: function (feature) {
         const line = feature.properties.rt_symbol;
         const lineColor = lineColors[line] || '#000';
-        return { color: lineColor, weight: 5 };
+        return { color: lineColor, weight: 1 };
       }
     }).addTo(map); 
   });

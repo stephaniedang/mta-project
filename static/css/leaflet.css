@@ -1,0 +1,15 @@
+/* Import default Leaflet CSS */
+@import 'https://unpkg.com/leaflet/dist/leaflet.css';
+
+/* Add your custom styles below */
+
+/* Example: Customize the popup background color */
+.leaflet-popup-content-wrapper {
+  background-color: #333;
+  color: white;
+}
+
+/* Example: Customize the marker color */
+.leaflet-marker-icon {
+  filter: brightness(0.7);
+}

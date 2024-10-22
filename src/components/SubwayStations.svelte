@@ -21,9 +21,8 @@
     setTimeout(() => {
       stations.forEach(station => {
         L.circle([station.lat, station.lon], {
-          radius: 50,
-          color: 'white',
-          fillOpacity: 0.5
+          radius: 30,
+          color: 'white'
         }).addTo(map).bindPopup(`<b>${station.stationName}</b>`);
       });
     }, 50);

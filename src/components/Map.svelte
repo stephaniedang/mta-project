@@ -1,3 +1,7 @@
+<svelte:head>
+  <link rel="stylesheet" href="/css/leaflet.css">
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte';
   import SubwayLines from './SubwayLines.svelte';
@@ -18,16 +22,14 @@
   });
 </script>
 
-<style>
-  @import 'leaflet/dist/leaflet.css';
-
-  #map {
-    height: 98vh;
-    width: 100%;
-  }
-</style>
-
 <div id="map">
   <SubwayLines {map} />
   <SubwayStations {map} />
 </div>
+
+<style>
+  #map {
+    height: 100vh; 
+    width: 100vw;
+  }
+</style>
