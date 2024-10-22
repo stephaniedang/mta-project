@@ -35,8 +35,8 @@
     map = L.map('map').setView([40.7128, -74.0060], 12);
 
     // Add the base map layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>'
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
+      attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     lineColors = await loadLineColors();
@@ -48,7 +48,7 @@
         const line = feature.properties.rt_symbol;
         const lineColor = lineColors[line];
         return { color: lineColor,
-                 weight: 1,
+                 weight: 5,
         };
       }
     }).addTo(map);
@@ -57,12 +57,10 @@
 
     // Add circles for the stations
     stations.forEach(station => {
-      // const routes = station.stationRoutes.split(' ');
-      // const routeColor = routes.find(route => lineColors[route]) || 'blue';
       L.circle([station.lat, station.lon], {
-        radius: 5,
-        color: 'white',
-        fillOpacity: 0.5,
+        radius: 100,
+        color: 'black',
+        fillOpacity: 0.1,
       }).addTo(map).bindPopup(`<b>${station.stationName}</b>`);
     });
   });
