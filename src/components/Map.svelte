@@ -13,7 +13,15 @@
     const L = await import('leaflet');
 
     // Initialize the Leaflet map
-    map = L.map('map').setView([40.7128, -74.0060], 12);
+    map = L.map('map', {
+        maxZoom: 20,
+        minZoom: 6,
+        zoomControl: false
+    }).setView([40.7128, -74.0060], 12);
+
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(map);
 
     // Add the base map layer
     L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {

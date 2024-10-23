@@ -25,6 +25,6 @@
           color: 'white'
         }).addTo(map).bindPopup(`<b>${station.stationName}</b>`);
       });
-    }, 50);
+    }, 100);
   });
 </script>
