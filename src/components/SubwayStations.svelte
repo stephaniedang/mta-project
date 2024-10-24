@@ -1,7 +1,9 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
   import * as d3 from 'd3';
   export let map;
+
+  const dispatch = createEventDispatcher();
 
   async function loadStationCSV() {
     const data = await d3.csv('/data/subwayStations.csv');
@@ -17,13 +19,17 @@
     const L = await import('leaflet');
     const stations = await loadStationCSV();
 
-    // Delay rendering of stations to ensure lines are added first
     setTimeout(() => {
       stations.forEach(station => {
-        L.circle([station.lat, station.lon], {
+        const circle = L.circle([station.lat, station.lon], {
           radius: 30,
           color: 'white'
         }).addTo(map).bindPopup(`<b>${station.stationName}</b>`);
+
+        circle.on('click', () => {
+          console.log('Circle Clicked: ', station.stationName);
+          dispatch('stationClick', station.stationName); 
+        });
       });
     }, 100);
   });

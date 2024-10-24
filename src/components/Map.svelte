@@ -3,16 +3,20 @@
 </svelte:head>
 
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
   import SubwayLines from './SubwayLines.svelte';
   import SubwayStations from './SubwayStations.svelte';
 
   let map;
+  const dispatch = createEventDispatcher();
+
+  function handleStationclick(event) {
+    dispatch('stationClick', event.detail);
+  }
 
   onMount(async () => {
     const L = await import('leaflet');
 
-    // Initialize the Leaflet map
     map = L.map('map', {
         maxZoom: 20,
         minZoom: 6,
@@ -23,7 +27,6 @@
         position: 'bottomright'
     }).addTo(map);
 
-    // Add the base map layer
     L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -32,7 +35,7 @@
 
 <div id="map">
   <SubwayLines {map} />
-  <SubwayStations {map} />
+  <SubwayStations {map} on:stationClick={handleStationclick}/>
 </div>
 
 <style>
