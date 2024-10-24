@@ -15,15 +15,42 @@
     }));
   }
 
+  async function loadArtworkCSV() {
+    const data = await d3.csv('/data/clean_art_data.csv');
+    return data;
+  }
+
+  function countArtworks(stationName, artworks) {
+    return artworks.filter(artwork => artwork['Station Name'] === stationName).length;
+  }
+
+  function getCircleSize(artworkCount) {
+    if (artworkCount === 0) return 10;
+    return 10 + artworkCount * 8;
+  }
+
+  function getCircleStrokeColor(artworkCount) {
+    return artworkCount === 0? 'white' : 'black';
+  }
+
+  function getCircleColor(artworkCount) {
+    return artworkCount === 0 ? 'black': 'white';
+  }
+
   onMount(async () => {
     const L = await import('leaflet');
     const stations = await loadStationCSV();
+    const artworks = await loadArtworkCSV();
 
     setTimeout(() => {
       stations.forEach(station => {
+        const artworkCount = countArtworks(station.stationName, artworks);
+
         const circle = L.circle([station.lat, station.lon], {
-          radius: 30,
-          color: 'white'
+          radius: getCircleSize(artworkCount),
+          color: getCircleStrokeColor(artworkCount),
+          fillColor: getCircleColor(artworkCount),
+          fillOpacity: 0.8
         }).addTo(map).bindPopup(`<b>${station.stationName}</b>`);
 
         circle.on('click', () => {

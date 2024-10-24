@@ -10,7 +10,7 @@
   }
 
   $: if (selectedStation && !stations.includes(selectedStation) && selectedStation !== 'all') {
-    stations = [selectedStation, ...stations]; // Add the clicked station to the dropdown
+    stations = [selectedStation, ...stations];
   }
 
   $: if (selectedStation && artworkData.length > 0) {
