@@ -1,16 +1,15 @@
 @import 'https://unpkg.com/leaflet/dist/leaflet.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Popup container styling */
 .leaflet-popup-content-wrapper {
-  background-color: #1b1c1d; /* Dark background matching modal */
-  color: #f9f9f9; /* Light text color for contrast */
-  padding: 12px; /* Add more padding for a cleaner look */
-  border-radius: 8px; /* Rounded corners similar to modal */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  background-color: #1b1c1d; 
+  color: #f9f9f9; 
+  padding: 12px; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Inner content styling */
+
 .leaflet-popup-content {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -20,23 +19,16 @@
   text-align: center;
 }
 
-/* Close button styling */
 .leaflet-popup-close-button {
-  /* color: #f9f9f9;
-  font-size: 18px;
-  top: 8px;
-  right: 8px; */
   display: none;
 }
 
-/* Arrow styling (tail connecting popup to marker) */
 .leaflet-popup-tip {
-  background-color: #1b1c1d; /* Match background of popup */
+  background-color: #1b1c1d;
 }
 
-/* Marker icon styling */
 .leaflet-marker-icon {
-  filter: brightness(0.7); /* Darken marker slightly */
+  filter: brightness(0.7); 
 }
 
 .leaflet-popup-content p {
