@@ -40,8 +40,8 @@
   <div class="modal-content">
     <h2 class="header-title">Art Off the Rails</h2>
     <p class="intro-text">
-      Often times, the subway station is a sensory explosion.
-      There's a caterwauling of noises, a blurring rush of visual
+      Often times, the subway station is a sensory overload.
+      There's a caterwauling of noises, a blur of visual
       spectacles, and occasionally <i>suspicious</i> smells. Within
       this dance that millions of New Yorkers two step in everyday,
       there are hidden moments of free (well $2.90 really) art that
