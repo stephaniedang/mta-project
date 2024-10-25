@@ -1,7 +1,3 @@
-Here’s the README with full Markdown syntax for easy copy-pasting:
-
----
-
 # NYC Subway Art Visualization
 
 ### Project Overview
