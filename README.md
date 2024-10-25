@@ -12,7 +12,7 @@ This interactive visualization provides an immersive look at public artwork acro
 ## Features
 
 - **Map with Interactive Circles**: Each station is represented by a circle, with the size indicating the count of artworks and color denoting the presence of art.
-- **Artwork Modal**: Clicking a station opens a modal, listing all artworks available at the station. Users can read artwork descriptions, view images, and find links to external descriptions.
+- **Artwork Modal**: Clicking a circle will update the list all artworks available at the station. Users can read high-level artwork information, view images, and find links to external descriptions.
 - **Dropdown Station Filter**: The dropdown allows users to browse artworks across all stations or select a specific station for a focused view.
 - **Dynamic Data Filtering**: The modal updates dynamically to show relevant artworks based on the selected station, ensuring accurate results.
 
@@ -77,9 +77,17 @@ This interactive visualization provides an immersive look at public artwork acro
 
 ## Future Improvements
 
-- **Additional Interactivity**: Add hover effects or animations to enhance the map’s responsiveness.
+- **Additional Interactivity**: Add hover effects for stations to enhance exploration experience.
 - **Search by Artist**: Integrate an artist search to allow users to find artworks by specific creators.
 - **Route Filtering**: Enable filtering artworks by subway line to give users a themed journey across stations.
+- **Ridership Analytics**: Add additional visual queues or text that shows average ridership for each line/station. How many people potentially pass by these artworks per day/week/month?
+
+---
+
+## Inspiration
+
+- https://jpwright.github.io/subway/
+- https://www.theweekendest.com/trains 
 
 ---
 
