@@ -20,8 +20,24 @@
     return data;
   }
 
-  function countArtworks(stationName, artworks) {
-    return artworks.filter(artwork => artwork['Station Name'] === stationName).length;
+  function countArtworks(stationName, stationRoutes, artworks) {
+    const normalizedStationName = stationName.trim().toUpperCase();
+    const normalizedStationRoutes = stationRoutes
+      .split(/[,\s]+/)
+      .map(route => route.trim().toUpperCase());
+
+    const filteredArtworks = artworks.filter(artwork => {
+      const artworkStationName = artwork['Station Name'].trim().toUpperCase();
+      const artworkRoutes = artwork['Line']
+        .split(/[,\s]+/)
+        .map(route => route.trim().toUpperCase());
+
+      const hasCommonLines = normalizedStationRoutes.some(route => artworkRoutes.includes(route));
+
+      return artworkStationName === normalizedStationName && hasCommonLines;
+    });
+
+    return filteredArtworks.length;
   }
 
   function getCircleSize(artworkCount) {
@@ -44,7 +60,7 @@
 
     setTimeout(() => {
       stations.forEach(station => {
-        const artworkCount = countArtworks(station.stationName, artworks);
+        const artworkCount = countArtworks(station.stationName, station.stationRoutes, artworks);
 
         const circle = L.circle([station.lat, station.lon], {
           radius: getCircleSize(artworkCount),
@@ -55,6 +71,7 @@
 
         circle.on('click', () => {
           console.log('Circle Clicked: ', station.stationName);
+          console.log('Coordinates: ', station.lat, station.lon)
           dispatch('stationClick', { name: station.stationName, lines: station.stationRoutes }); 
         });
       });

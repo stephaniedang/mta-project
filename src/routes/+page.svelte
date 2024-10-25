@@ -28,9 +28,11 @@
   function handleStationclick(event) {
     const { name, lines } = event.detail;
     selectedStation = name;
-    selectedLines = lines.split(',').map(line => line.trim());
+    selectedLines = lines.split(/\s+/);
     selectedIdentifier = `${name}-${lines}`;
     console.log('Station Clicked: ', name);
+    console.log('selectedIdentifier: ', selectedIdentifier);
+    console.log('selectedLines:', selectedLines);
   }
 </script>
 
