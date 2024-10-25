@@ -52,7 +52,7 @@
   <div class="modal-content">
     <h2 class="header-title">Art Off the Rails</h2>
     <p class="intro-text">
-      Often times, the subway station is a sensory overload. There's a caterwauling of noises, a blur of visual
+      Oftentimes, the subway station is a sensory overload. There's a caterwauling of noises, a blur of visual
       spectacles, and occasionally <i>suspicious</i> smells. Within this dance that millions of New Yorkers two step 
       in everyday, there are hidden moments of free (well $2.90 really) art that twirls around us. Through the Permanent 
       Art Program, Arts for Transit commissions public art across MTA NYC Transit and Staten Island Rail. We pass by so much
