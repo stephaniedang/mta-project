@@ -25,12 +25,12 @@
   }
 
   function getCircleSize(artworkCount) {
-    if (artworkCount === 0) return 10;
-    return 10 + artworkCount * 8;
+    if (artworkCount === 0) return 25;
+    return 10 + artworkCount * 15;
   }
 
   function getCircleStrokeColor(artworkCount) {
-    return artworkCount === 0? 'white' : 'black';
+    return artworkCount === 0? '#262322' : '#dee2e6';
   }
 
   function getCircleColor(artworkCount) {

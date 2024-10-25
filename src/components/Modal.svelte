@@ -1,4 +1,8 @@
-<script>
+<svelte:head>
+  <link rel="stylesheet" href="/css/modal.css">
+</svelte:head>
+
+<script> 
   export let selectedStation;
   export let artworkData;
 
@@ -32,20 +36,39 @@
 
 <div id="artwork-modal" class="modal">
   <div class="modal-content">
-    <h2>Art Off the Rails</h2>
-    <p>
+    <h2 class="header-title">Art Off the Rails</h2>
+    <p class="intro-text">
       Often times, the subway station is a sensory explosion.
-      There's a cacophony of noises, a blurring rush of visual
-      spectacles, and hopefully minimal suspicious smells. Within
+      There's a caterwauling of noises, a blurring rush of visual
+      spectacles, and occasionally <i>suspicious</i> smells. Within
       this dance that millions of New Yorkers two step in everyday,
       there are hidden moments of free (well $2.90 really) art that
-      tangos around us. Through the Permanent Art Program, Arts
-      for Transit commissions public art across MTA NYC Transit, 
-      LIRR, Metro-North, and Staten Island Rail.
+      twirls around us. Through the Permanent Art Program, Arts
+      for Transit commissions public art across MTA NYC Transit and Staten Island Rail. We pass by so much
+      art everyday without even realizing it. How many of these do 
+      you have you encountered on your commutes before? Click on an image 
+      to read their description page and learn more!
     </p>
 
+    <div class="legend-section">
+      <h3 class="legend-title">Legend</h3>
+      <div class="legend-item">
+        <span class="legend-dot white-dot"></span>
+        <span class="legend-description">Station with artworks</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot black-dot"></span>
+        <span class="legend-description">Station without artworks</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-circle-example"></span>
+        <span class="legend-description">Larger circles = more artworks</span>
+      </div>
+    </div>
+
     <div class="filter-section">
-      <label for="station-select"> Artwork in
+      <label for="station-select"> 
+        <span class="label-text">Artwork in</span>
         <select id="station-select" bind:value={selectedStation}>
           <option value="all">All Stations</option>
           {#each stations as station}
@@ -56,16 +79,20 @@
     </div>
 
     {#if filteredArtworks.length === 0 && selectedStation !== 'all'}
-      <p>There’s no artwork at {selectedStation} Station!</p>
+      <p class="no-art-message">🎨 Oh no! There’s no artwork at {selectedStation} Station.</p>
     {:else}
       <ul id="artwork-list">
         {#each filteredArtworks as artwork}
-          <li>
-            <img src={artwork.direct_image_link} alt="{artwork['Art Title']}" style="width: 100px;">
+          <li class="art-item">
+            <a href="{artwork['Art Image Link']}" target="_blank" rel="noopener noreferrer"><img src={artwork.direct_image_link} alt="{artwork['Art Title']}" class="art-image"></a>
             <p class="artwork-info">
-              <strong>{artwork['Art Title']}</strong> by {artwork.Artist} ({artwork['Art Date']})
+              <span class="title-label">{artwork['Art Title']}</span>
               <br />
-              {artwork['Art Material']}
+              <span class="station-label">📍 {artwork['Station Name']}</span>
+              <br />
+              <span class="artist-label">⭐️ {artwork.Artist} ({artwork['Art Date']})</span>
+              <br />
+              <span class="material-label">🎨 {artwork['Art Material']}</span>
             </p>
           </li>
         {/each}
@@ -73,44 +100,3 @@
     {/if}
   </div>
 </div>
-
-<style>
-  .modal {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 375px;
-    max-height: 600px;
-    padding: 20px;
-    background-color: #1b1c1d;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    z-index: 1000;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    color: white;
-  }
-
-  .filter-section {
-    display: flex;
-    flex-direction: column;
-  }
-
-  ul#artwork-list {
-    flex-grow: 1;
-    max-height: 260px;
-    overflow-y: auto;
-    padding: 0;
-  }
-
-  li {
-    list-style-type: none;
-    display: flex;
-    padding: 6px 0;
-  }
-
-  .artwork-info {
-    padding: 4px;
-  }
-</style>

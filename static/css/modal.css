@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.modal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 550px;
+  height: 730px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-title {
+  font-size: 24px;
+  color: #0039A6;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.intro-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.label-text {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: #0039A6;
+}
+
+.no-art-message {
+  font-size: 16px;
+  color: #ff4b4b;
+  font-weight: 600;
+  text-align: center;
+}
+
+ul#artwork-list {
+  flex-grow: 1;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.art-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  transition: transform 0.2s ease;
+  max-width: 490px;
+}
+
+.art-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.artwork-info {
+  font-size: 14px;
+  line-height: 1.4;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-label {
+  display: inline-block;
+  background-color: #0039A6;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.station-label, .artist-label, .material-label {
+  display: inline-block;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.legend-section {
+  margin: 20px 0;
+  padding-top: 18px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0039A6;
+  display: flex;
+  gap: 20px; 
+}
+
+.legend-title {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.white-dot {
+  background-color: #ffffff;
+  border: 1px solid #333;
+}
+
+.black-dot {
+  background-color: #000000;
+}
+
+.legend-circle-example {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px dashed #333;
+  margin-right: 6px;
+}
+
+.legend-description {
+  font-size: 12px;
+  color: #555;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+.modal {
+  width: 80%;
+  left: 10%;
+  padding: 15px;
+  max-height: 90vh;
+}
+
+.header-title {
+  font-size: 20px;
+}
+
+.intro-text {
+  font-size: 12px;
+}
+
+.legend-section, .filter-section {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.legend-item {
+  gap: 4px;
+}
+
+.art-item {
+  flex-direction: column; 
+  align-items: center;
+  padding: 8px;
+}
+
+.art-image {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.artwork-info {
+  width: 100%; 
+  text-align: center;
+  font-size: 13px;
+}
+}
+
+@media (max-width: 480px) {
+.modal {
+  width: 90%;
+  left: 5%;
+  padding: 10px;
+}
+
+.header-title {
+  font-size: 18px;
+}
+
+.legend-item {
+  font-size: 11px;
+}
+
+.legend-section, .filter-section {
+  font-size: 12px;
+  gap: 8px;
+}
+
+.art-item {
+  max-width: 100%;
+  padding: 6px;
+}
+
+.title-label, .station-label, .artist-label, .material-label {
+  font-size: 12px;
+}
+}
