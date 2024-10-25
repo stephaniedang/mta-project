@@ -1,4 +1,4 @@
-# NYC Subway Art Visualization
+# Art Off the Rails - NYC Subway Art Visualization
 
 ### Project Overview
 This interactive visualization provides a look at public artwork across NYC subway stations. Users can explore each station's artworks which are visualized as circles on the map. Each station’s circle size and color indicate the presence and number of artworks, while a pop-up modal displays detailed information about individual pieces, artist backgrounds, and links to further descriptions. This project was created as part of MTA's Open Data Challenge (https://new.mta.info/article/mta-open-data-challenge).
