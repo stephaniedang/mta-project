@@ -10,6 +10,8 @@
   import { csv } from 'd3-fetch';
   
   let selectedStation = 'all';
+  let selectedLines = [];
+  let selectedIdentifier = '';
   let artworkData = [];
 
   onMount(() => {
@@ -24,13 +26,15 @@
   });
 
   function handleStationclick(event) {
-    const stationName = event.detail;
-    console.log('Station Clicked: ', stationName);
-    selectedStation = stationName;
+    const { name, lines } = event.detail;
+    selectedStation = name;
+    selectedLines = lines.split(',').map(line => line.trim());
+    selectedIdentifier = `${name}-${lines}`;
+    console.log('Station Clicked: ', name);
   }
 </script>
 
 {#if artworkData.length > 0}
   <Map on:stationClick={handleStationclick}/>
-  <Modal {selectedStation} {artworkData} />
+  <Modal {selectedStation} {selectedLines} {selectedIdentifier} {artworkData} />
 {/if}

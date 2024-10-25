@@ -4,6 +4,8 @@
 
 <script> 
   export let selectedStation;
+  export let selectedLines = [];
+  export let selectedIdentifier = '';
   export let artworkData;
 
   let stations = [];
@@ -13,11 +15,7 @@
     stations = [...new Set(artworkData.map(art => art['Station Name']))];
   }
 
-  $: if (selectedStation && !stations.includes(selectedStation) && selectedStation !== 'all') {
-    stations = [selectedStation, ...stations];
-  }
-
-  $: if (selectedStation && artworkData.length > 0) {
+  $: if (selectedIdentifier || selectedStation === 'all' && artworkData.length > 0) {
     updateArtworks();
   }
 
@@ -28,7 +26,11 @@
       filteredArtworks = artworkData.filter(art => {
         const normalizedArtStation = art['Station Name'].trim().toLowerCase();
         const normalizedSelectedStation = selectedStation.trim().toLowerCase();
-        return normalizedArtStation === normalizedSelectedStation;
+        const artLines = art['Line'].split(',').map(line => line.trim());
+        return (
+          normalizedArtStation === normalizedSelectedStation &&
+          selectedLines.some(line => artLines.includes(line))
+        );
       });
     }
   }
@@ -68,7 +70,7 @@
 
     <div class="filter-section">
       <label for="station-select"> 
-        <span class="label-text">Artwork in</span>
+        <span class="label-text">Artwork at</span>
         <select id="station-select" bind:value={selectedStation}>
           <option value="all">All Stations</option>
           {#each stations as station}
@@ -90,7 +92,7 @@
               <br />
               <span class="station-label">📍 {artwork['Station Name']}</span>
               <br />
-              <span class="artist-label">⭐️ {artwork.Artist} ({artwork['Art Date']})</span>
+              <span class="artist-label">⭐️ <i>{artwork.Artist} ({artwork['Art Date']})</i></span>
               <br />
               <span class="material-label">🎨 {artwork['Art Material']}</span>
             </p>

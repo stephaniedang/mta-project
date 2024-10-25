@@ -55,7 +55,7 @@
 
         circle.on('click', () => {
           console.log('Circle Clicked: ', station.stationName);
-          dispatch('stationClick', station.stationName); 
+          dispatch('stationClick', { name: station.stationName, lines: station.stationRoutes }); 
         });
       });
     }, 100);
