@@ -23,6 +23,8 @@ This interactive visualization provides an immersive look at public artwork acro
 - **Data Files**:
   - `subwayStations.csv`: Contains subway station data with coordinates and route information.
   - `clean_art_data.csv`: Contains artwork data with station names, lines, artist information, and image links.
+  - `subwayLineColors.json`: Contains corresponding colors for each MTA subway line.
+  - `subwayLines.geojson`: Contains MTA subway lines and corresponding latitude and longitude information.
 - **Components**:
   - `Map.svelte`: Manages the map and station circles, including size and color scaling.
   - `Modal.svelte`: Displays filtered artwork data and allows interaction with each artwork.
