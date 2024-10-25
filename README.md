@@ -33,29 +33,6 @@ This interactive visualization provides an immersive look at public artwork acro
 
 ---
 
-## Setup and Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/username/NYC-Subway-Art.git
-   cd NYC-Subway-Art
-   ```
-
-2. **Install Dependencies**:
-   This project uses Svelte and D3. Install required packages:
-   ```bash
-   npm install
-   ```
-
-3. **Run the Project**:
-   Start the development server:
-   ```bash
-   npm run dev
-   ```
-   Open the project in your browser at `http://localhost:5173`.
-
----
-
 ## Usage Instructions
 
 - **Explore Stations**: Click on any station circle on the map to view its art pieces.
