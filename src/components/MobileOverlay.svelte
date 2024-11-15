@@ -28,10 +28,9 @@
 
   #mobile-warning {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    padding: 30px;
     background-color: #2a2a2a;
     color: white;
     display: flex;
@@ -50,25 +49,24 @@
   img {
     max-width: 100%;
     height: auto;
-    margin: 15px 0;
+    margin: 10px 0;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   }
 
+  p {
+    margin: 15px;
+    font-size: 0.8em;
+  }
+
   h1 {
-    font-size: 2.5em;
+    font-size: 1.7em;
     font-family: 'Delius Unicase', cursive;
-    margin-bottom: 10px;
     color: #a4dded;
   }
 
-  p {
-    margin: 25px;
-    font-size: 0.9em;
-  }
-
   .sign-off {
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Delius Unicase', cursive;
     color: #a4dded;
     margin: 5px;
