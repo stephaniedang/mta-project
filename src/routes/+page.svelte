@@ -6,7 +6,6 @@
 <script>
   import Map from "../components/Map.svelte";
   import Modal from "../components/Modal.svelte";
-  import MobileOverlay from "../components/MobileOverlay.svelte";
   import { onMount } from "svelte";
   import { csv } from 'd3-fetch';
   
@@ -36,8 +35,6 @@
     console.log('selectedLines:', selectedLines);
   }
 </script>
-
-<MobileOverlay /> 
 
 {#if artworkData.length > 0}
   <Map on:stationClick={handleStationclick}/>

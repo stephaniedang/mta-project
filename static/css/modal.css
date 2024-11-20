@@ -186,77 +186,96 @@ ul#artwork-list {
 }
 
 /* media queries */
-@media (max-width: 768px) {
-.modal {
-  width: 80%;
-  left: 10%;
-  padding: 15px;
-  max-height: 90vh;
-}
+@media (max-width: 1000px) {
+  .modal {
+    width: 40%;
+    left: 2.5%;
+    padding: 15px;
+    max-height: 85vh;
+    height: auto;
+  }
 
-.header-title {
-  font-size: 20px;
-}
+  .header-title {
+    font-size: 20px;
+  }
 
-.intro-text {
-  font-size: 12px;
-}
+  .intro-text {
+    font-size: 12px;
+  }
 
-.legend-section, .filter-section {
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .legend-section, .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-.legend-item {
-  gap: 4px;
-}
+  .filter-section select {
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box;
+  }
 
-.art-item {
-  flex-direction: column; 
-  align-items: center;
-  padding: 8px;
-}
+  .art-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
 
-.art-image {
-  width: 180px;
-  height: 180px;
-  margin-bottom: 10px;
-  margin-right: 0;
-}
+  .art-image {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+  }
 
-.artwork-info {
-  width: 100%; 
-  text-align: center;
-  font-size: 13px;
-}
+  .artwork-info {
+    width: 100%;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
-.modal {
-  width: 90%;
-  left: 5%;
-  padding: 10px;
-}
+  .modal {
+    width: 85%;
+    left: 7.5%;
+    padding: 12px;
+    max-height: 45vh;
+  }
 
-.header-title {
-  font-size: 18px;
-}
+  .header-title {
+    font-size: 18px;
+  }
 
-.legend-item {
-  font-size: 11px;
-}
+  .intro-text {
+    font-size: 11px;
+  }
 
-.legend-section, .filter-section {
-  font-size: 12px;
-  gap: 8px;
-}
+  .legend-section, .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-.art-item {
-  max-width: 100%;
-  padding: 6px;
-}
+  .filter-section select {
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box;
+  }
 
-.title-label, .station-label, .artist-label, .material-label {
-  font-size: 12px;
-}
+  .art-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+    max-width: 100%;
+  }
+
+  .art-image {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 8px;
+  }
+
+  .artwork-info {
+    width: 100%;
+    font-size: 11px;
+  }
 }
