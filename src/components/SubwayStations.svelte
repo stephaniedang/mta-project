@@ -46,7 +46,7 @@
   }
 
   function getCircleStrokeColor(artworkCount) {
-    return artworkCount === 0? '#4a4e69' : '#dee2e6';
+    return artworkCount === 0? '#262322' : '#dee2e6';
   }
 
   function getCircleColor(artworkCount) {
