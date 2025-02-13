@@ -19,6 +19,12 @@
     updateArtworks();
   }
 
+  function handleDropdownChange() {
+    const stationEntry = artworkData.find(art => art['Station Name'] === selectedStation);
+    selectedLines = stationEntry ? stationEntry['Line'].split(/[, ]+/) : [];
+    updateArtworks();
+  }
+
   function updateArtworks() {
   if (selectedStation === 'all') {
     filteredArtworks = [...artworkData];
@@ -76,7 +82,7 @@
       </div>
     </div>
 
-    <div class="filter-section">
+    <!-- <div class="filter-section">
       <label for="station-select"> 
         <span class="label-text">Artwork at</span>
         <select id="station-select" bind:value={selectedStation}>
@@ -86,7 +92,19 @@
           {/each}
         </select>
       </label>
-    </div>
+    </div> -->
+
+    <div class="filter-section">
+      <label for="station-select"> 
+        <span class="label-text">Artwork at</span>
+        <select id="station-select" bind:value={selectedStation} on:change={handleDropdownChange}>
+          <option value="all">All Stations</option>
+          {#each stations as station}
+            <option value={station}>{station}</option>
+          {/each}
+        </select>
+      </label>
+    </div>    
 
     {#if filteredArtworks.length === 0 && selectedStation !== 'all'}
       <p class="no-art-message">🎨 Oh no! There’s no artwork at {selectedStation} Station.</p>
